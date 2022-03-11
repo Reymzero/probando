@@ -67,42 +67,6 @@ LOCK TABLES `cliente` WRITE;
 INSERT INTO `cliente` VALUES (1,'Luis','Garro Torres','AV. Atusparia','939492096'),(2,'Marco','Molina Coral','AV. luzuriaga','986532745');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `insertarcliente` AFTER INSERT ON `cliente` FOR EACH ROW begin
-insert into acciones(accion,fecha,usser)
-values (concat_ws(' ', 'se registro en la tabla cliente -->', new.id_cliente,new.nombres,new.apellidos,new.direccion,new.telefono),sysdate(),system_user());
-end */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `eliminarcliente` AFTER DELETE ON `cliente` FOR EACH ROW begin
-insert into acciones(accion,fecha,usser)
-values (concat_ws(' ', 'se elimino en la tabla cliente -->', old.id_cliente,old.nombres,old.apellidos,old.direccion,old.telefono),sysdate(),system_user());
-end */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Temporary view structure for view `cliente_producto`
@@ -193,6 +157,27 @@ INSERT INTO `compra_servicio` VALUES (2,2,'2021-10-12','2021-11-12');
 UNLOCK TABLES;
 
 --
+-- Table structure for table `hola`
+--
+
+DROP TABLE IF EXISTS `hola`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `hola` (
+  `saludo` varchar(500) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `hola`
+--
+
+LOCK TABLES `hola` WRITE;
+/*!40000 ALTER TABLE `hola` DISABLE KEYS */;
+/*!40000 ALTER TABLE `hola` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `producto`
 --
 
@@ -218,42 +203,6 @@ LOCK TABLES `producto` WRITE;
 INSERT INTO `producto` VALUES (1,'sin producto','vacio',0,0),(2,'Ram','Partes informaticas',25,9),(3,'laptop','laptop',1200,3);
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `insertarproducto` AFTER INSERT ON `producto` FOR EACH ROW begin
-insert into acciones(accion,fecha,usser)
-values (concat_ws(' ', 'se registro en la tabla producto -->', new.id_producto,new.nombre_prod,new.descripcion_producto,new.precio,new.stock),sysdate(),system_user());
-end */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-/*!50003 CREATE*/ /*!50017 DEFINER=`root`@`localhost`*/ /*!50003 TRIGGER `eliminarproducto` AFTER DELETE ON `producto` FOR EACH ROW begin
-insert into acciones(accion,fecha,usser)
-values (concat_ws(' ', 'se elimino en la tabla producto -->', old.id_producto,old.nombre_prod,old.descripcion_producto,old.precio,old.stock),sysdate(),system_user());
-end */;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
 
 --
 -- Table structure for table `provedor`
@@ -344,62 +293,6 @@ INSERT INTO `servicio` VALUES (1,'sin servicio','0',0),(2,'sistemas de informaci
 UNLOCK TABLES;
 
 --
--- Dumping events for database 'tienda'
---
-
---
--- Dumping routines for database 'tienda'
---
-/*!50003 DROP FUNCTION IF EXISTS `producto_cliente` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `producto_cliente`(idproducto varchar(10)) RETURNS int
-    DETERMINISTIC
-begin
-	declare cantidadclientes int;
-	select count(p.id_producto) into cantidadclientes
-from compra_producto s inner join producto p on s.producto_id_producto=p.id_producto
-where p.id_producto like concat('%',idproducto,'%');
-return cantidadclientes;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-/*!50003 DROP FUNCTION IF EXISTS `producto_cliente_nom` */;
-/*!50003 SET @saved_cs_client      = @@character_set_client */ ;
-/*!50003 SET @saved_cs_results     = @@character_set_results */ ;
-/*!50003 SET @saved_col_connection = @@collation_connection */ ;
-/*!50003 SET character_set_client  = utf8mb4 */ ;
-/*!50003 SET character_set_results = utf8mb4 */ ;
-/*!50003 SET collation_connection  = utf8mb4_0900_ai_ci */ ;
-/*!50003 SET @saved_sql_mode       = @@sql_mode */ ;
-/*!50003 SET sql_mode              = 'STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION' */ ;
-DELIMITER ;;
-CREATE DEFINER=`root`@`localhost` FUNCTION `producto_cliente_nom`(nombreproducto varchar(10)) RETURNS int
-    DETERMINISTIC
-begin
-	declare cantidadclientes int;
-	select count(p.nombre_prod) into cantidadclientes
-from compra_producto s inner join producto p on s.producto_id_producto=p.id_producto
-where p.nombre_prod like concat('%',nombreproducto,'%');
-return cantidadclientes;
-end ;;
-DELIMITER ;
-/*!50003 SET sql_mode              = @saved_sql_mode */ ;
-/*!50003 SET character_set_client  = @saved_cs_client */ ;
-/*!50003 SET character_set_results = @saved_cs_results */ ;
-/*!50003 SET collation_connection  = @saved_col_connection */ ;
-
---
 -- Final view structure for view `cliente_producto`
 --
 
@@ -480,4 +373,4 @@ DELIMITER ;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-10 22:10:09
+-- Dump completed on 2022-03-10 22:56:41
