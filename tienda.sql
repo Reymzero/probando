@@ -28,7 +28,7 @@ CREATE TABLE `acciones` (
   `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `usser` varchar(45) NOT NULL,
   PRIMARY KEY (`idacciones`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `acciones` (
 
 LOCK TABLES `acciones` WRITE;
 /*!40000 ALTER TABLE `acciones` DISABLE KEYS */;
-INSERT INTO `acciones` VALUES (1,'se registro en la tabla cliente --> 2 Marco Molina Coral AV. luzuriaga 986532745','2021-08-24 09:11:02','root@localhost'),(2,'se registro en la tabla producto --> 3 laptop laptop 1200 3','2021-08-28 19:23:22','root@localhost');
+INSERT INTO `acciones` VALUES (1,'se registro en la tabla cliente --> 2 Marco Molina Coral AV. luzuriaga 986532745','2021-08-24 09:11:02','root@localhost'),(2,'se registro en la tabla producto --> 3 laptop laptop 1200 3','2021-08-28 19:23:22','root@localhost'),(3,'se registro en la tabla cliente --> 3 Juan Gomes Molina Soledad 95363423','2022-03-11 22:22:53','root@localhost');
 /*!40000 ALTER TABLE `acciones` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -55,7 +55,7 @@ CREATE TABLE `cliente` (
   `Direccion` varchar(45) NOT NULL,
   `Telefono` varchar(45) NOT NULL,
   PRIMARY KEY (`ID_Cliente`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -64,7 +64,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
-INSERT INTO `cliente` VALUES (1,'Luis','Garro Torres','AV. Atusparia','939492096'),(2,'Marco','Molina Coral','AV. luzuriaga','986532745');
+INSERT INTO `cliente` VALUES (1,'Luis','Garro Torres','AV. Atusparia','939492096'),(2,'Marco','Molina Coral','AV. luzuriaga','986532745'),(3,'Juan','Gomes Molina','Soledad','95363423');
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -373,4 +373,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-10 22:56:41
+-- Dump completed on 2022-03-11 22:23:38
